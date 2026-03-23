@@ -2,7 +2,7 @@ def validate_amount(amount: str):
     try:
         amnt = float(amount)
         if amnt <= 0:
-            raise ValueError("The value entered must be greater than or equal to zero.")
+            raise ValueError("The value entered must be greater than zero.")
 
         return amnt
 
