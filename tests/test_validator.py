@@ -7,7 +7,7 @@ def test_valid_type_except():
         validate_amount("uuu")
 
 
-@pytest.mark.parametrize("amount, expected_type", [(123, float)])
+@pytest.mark.parametrize("amount, expected_type", [("123", float)])
 def test_valid_type(amount, expected_type):
     assert isinstance(validate_amount(amount), expected_type)
 
