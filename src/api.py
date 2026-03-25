@@ -70,14 +70,15 @@ def get_rates(currency: str):
 def save(data_currs: dict):
 
     os.makedirs(FOLDER_PATH, exist_ok=True)
-    if not os.path.exists(FILE_PATH):
-        data = {}
 
-    with open(FILE_PATH, "r", encoding="utf-8") as f:
-        try:
-            data = json.load(f)
-        except json.JSONDecodeError:
-            data = {}
+    if os.path.exists(FILE_PATH):
+        with open(FILE_PATH, "r", encoding="utf-8") as f:
+            try:
+                data = json.load(f)
+            except json.JSONDecodeError:
+                data = {}
+    else:
+        data = {}
 
     data.update(data_currs)
     with open(FILE_PATH, "w", encoding="utf-8") as f:
